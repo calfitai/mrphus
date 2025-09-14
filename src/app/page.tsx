@@ -95,28 +95,12 @@ export default function HomePage() {
               <a href="/pricing" className="text-white hover:text-gray-200 transition-colors">Pricing</a>
             </nav>
 
-            {/* Auth Buttons */}
+            {/* Credits Display */}
             <div className="hidden md:flex items-center space-x-4">
-              {isLoggedIn ? (
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center space-x-2 bg-[#ff5757]/20 border border-[#ff5757]/30 px-4 py-2 rounded-full">
-                    <Sparkles className="h-4 w-4 text-[#ff5757]" />
-                    <span className="text-sm font-semibold text-white">{credits} Credits</span>
-                  </div>
-                  <button className="flex items-center space-x-2 text-white hover:text-gray-200 transition-colors">
-                    <User className="h-5 w-5" />
-                    <span>Profile</span>
-                  </button>
-                </div>
-              ) : (
-                <div className="flex items-center space-x-3">
-                  <button className="text-white hover:text-gray-200 transition-colors">Login</button>
-                  <div className="flex items-center space-x-1 bg-[#ff5757]/20 border border-[#ff5757]/30 px-3 py-1 rounded-full">
-                    <Sparkles className="h-3 w-3 text-[#ff5757]" />
-                    <span className="text-xs font-medium text-white">{credits} Free Credits</span>
-                  </div>
-                </div>
-              )}
+              <div className="flex items-center space-x-2 bg-[#ff5757]/20 border border-[#ff5757]/30 px-4 py-2 rounded-full">
+                <Sparkles className="h-4 w-4 text-[#ff5757]" />
+                <span className="text-sm font-semibold text-white">{credits} Credits</span>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
