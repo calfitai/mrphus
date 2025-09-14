@@ -408,7 +408,7 @@ export default function HomePage() {
           </div>
           
           {/* Links Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
             <div className="text-center md:text-left">
               <h4 className="font-semibold mb-4 text-[#ff5757]">Product</h4>
               <ul className="space-y-3">
@@ -433,6 +433,21 @@ export default function HomePage() {
                 <li><a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
+            
+            <div className="text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start space-x-6 mt-6">
+                <img 
+                  src="/Inception_Social_Ima.png" 
+                  alt="NVIDIA Inception Startup Program" 
+                  className="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                />
+                <img 
+                  src="/google-startup-program.png" 
+                  alt="Google Startup Program" 
+                  className="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </div>
           </div>
           
           {/* Bottom Section */}
@@ -443,18 +458,6 @@ export default function HomePage() {
               </div>
               <div className="flex items-center space-x-6 text-sm text-gray-400">
                 <span>Powered by Searcly Teknoloji A.Ş.</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <img 
-                  src="/Inception_Social_Ima.png" 
-                  alt="NVIDIA Inception Startup Program" 
-                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                />
-                <img 
-                  src="/google-startup-program.png" 
-                  alt="Google Startup Program" 
-                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                />
               </div>
             </div>
           </div>
