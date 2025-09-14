@@ -171,7 +171,9 @@ export default function HomePage() {
           <img
             src="/hero-background.png"
             alt="Hero Background"
-            className="w-full h-full object-cover object-bottom opacity-60"
+            className="hero-bg w-full h-full object-cover object-bottom opacity-60"
+            loading="eager"
+            fetchPriority="high"
           />
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/40"></div>

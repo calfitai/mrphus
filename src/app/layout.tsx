@@ -24,6 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preload critical images */}
+        <link rel="preload" as="image" href="/hero-background.png" />
+        <link rel="preload" as="image" href="/MRPHUS-web-logo.png" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

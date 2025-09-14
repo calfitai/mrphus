@@ -5,6 +5,16 @@
   --foreground: #171717;
 }
 
+/* Hero background optimization */
+.hero-bg {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
