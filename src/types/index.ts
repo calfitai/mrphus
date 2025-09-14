@@ -11,6 +11,5 @@ export interface Category {
   title: string;
   description: string;
   prompt: string;
-  icon: string;
-  color: string;
+  image: string;
 }
