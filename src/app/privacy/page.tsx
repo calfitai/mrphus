@@ -1,12 +1,3 @@
-import { Metadata } from 'next';
-import { generateMetadata as generateSEOMetadata } from '@/config/seo';
-
-export const metadata: Metadata = generateSEOMetadata(
-  'Privacy Policy - How We Protect Your Data',
-  'Learn how MRPHUS AI collects, uses, and protects your personal information. Our privacy policy explains data handling, security measures, and your rights.',
-  ['privacy policy', 'data protection', 'privacy', 'data security', 'GDPR', 'user privacy']
-);
-
 'use client';
 
 import React from 'react';

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { generateMetadata } from '@/config/seo';
 import { motion } from 'framer-motion';
 import { 
   Camera, 

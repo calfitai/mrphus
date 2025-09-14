@@ -1,12 +1,3 @@
-import { Metadata } from 'next';
-import { generateMetadata as generateSEOMetadata } from '@/config/seo';
-
-export const metadata: Metadata = generateSEOMetadata(
-  'AI Image Generator - Create & Transform Images with AI',
-  'Use MRPHUS AI image generator to create stunning images, transform photos, fix blurry images, and apply various AI effects. Professional AI image processing in seconds.',
-  ['AI image generator', 'image transformation', 'photo editing', 'AI effects', 'image processing', 'photo enhancement']
-);
-
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
