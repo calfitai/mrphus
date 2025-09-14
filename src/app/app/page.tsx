@@ -44,10 +44,12 @@ export default function AppPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Check URL parameters for pre-selected category
+  // Check URL parameters for pre-selected category and prompt
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const mode = urlParams.get('mode');
+    const prompt = urlParams.get('prompt');
+    const category = urlParams.get('category');
     
     if (mode === 'blur') {
       const blurCategory = categories.find(cat => cat.id === '26');
@@ -55,6 +57,18 @@ export default function AppPage() {
         setSelectedCategory(blurCategory);
         setShowCategories(false);
       }
+    } else if (prompt && category) {
+      // Handle text-to-image generation from homepage
+      const systemMessage: Message = {
+        id: Date.now().toString(),
+        type: 'system',
+        content: `Text prompt alındı: "${prompt}"`,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, systemMessage]);
+      
+      // Show categories for selection
+      setShowCategories(true);
     }
   }, []);
 

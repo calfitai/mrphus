@@ -52,8 +52,9 @@ export default function HomePage() {
       const result = await aiService.generateImage(chatInput, 'general');
       
       if (result.success) {
-        // Redirect to app page with result
-        window.location.href = `/app?result=${encodeURIComponent(result.imageUrl)}&prompt=${encodeURIComponent(chatInput)}`;
+        // Show success message and redirect to app page
+        alert('AI işleme başarılı! App sayfasına yönlendiriliyorsunuz...');
+        window.location.href = `/app?prompt=${encodeURIComponent(chatInput)}&category=general`;
       } else {
         alert('AI işleme sırasında hata oluştu: ' + result.error);
         // Refund credit on error

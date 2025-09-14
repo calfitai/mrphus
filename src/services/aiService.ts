@@ -9,6 +9,8 @@ export interface AIRequest {
 export interface AIResponse {
   success: boolean;
   resultImage?: string;
+  description?: string;
+  enhancedPrompt?: string;
   error?: string;
 }
 
@@ -76,7 +78,7 @@ export class AIService {
     }
   }
 
-  async generateImage(prompt: string): Promise<AIResponse> {
+  async generateImage(prompt: string, category: string = 'general'): Promise<AIResponse> {
     try {
       if (!this.apiKey) {
         throw new Error('API key not configured');
@@ -88,7 +90,8 @@ export class AIService {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          prompt: prompt
+          prompt: prompt,
+          category: category
         }),
       });
 
@@ -101,7 +104,9 @@ export class AIService {
       if (result.success) {
         return {
           success: true,
-          resultImage: result.resultImage
+          resultImage: result.resultImage,
+          description: result.description,
+          enhancedPrompt: result.enhancedPrompt
         };
       } else {
         return {
