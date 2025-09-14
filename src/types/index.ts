@@ -5,3 +5,12 @@ export interface Message {
   timestamp: Date;
   imageUrl?: string;
 }
+
+export interface Category {
+  id: string;
+  title: string;
+  description: string;
+  prompt: string;
+  icon: string;
+  color: string;
+}

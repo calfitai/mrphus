@@ -70,7 +70,7 @@ Mood: ${category || 'general'}
 Create an image that matches this description perfectly.`;
 
           // Generate the image using Gemini 2.5 Flash
-          const imageResult = await model.generateContent(imageGenerationPrompt);
+          // const imageResult = await model.generateContent(imageGenerationPrompt);
           // const imageResponse = await imageResult.response;
     
     // For now, we'll return the enhanced description
