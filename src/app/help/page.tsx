@@ -1,3 +1,12 @@
+import { Metadata } from 'next';
+import { generateMetadata as generateSEOMetadata } from '@/config/seo';
+
+export const metadata: Metadata = generateSEOMetadata(
+  'Help Center - AI Image Generation Support & FAQ',
+  'Get help with MRPHUS AI image generation. Find answers to common questions, learn how to use features, and get support for your AI image processing needs.',
+  ['help', 'FAQ', 'support', 'tutorial', 'AI image generation help', 'how to use']
+);
+
 'use client';
 
 import React from 'react';

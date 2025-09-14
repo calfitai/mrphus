@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { generateMetadata } from '@/config/seo';
 import { motion } from 'framer-motion';
 import { 
   Camera, 
@@ -278,10 +279,10 @@ export default function HomePage() {
 
 
       {/* Categories Section */}
-      <section id="categories" className="py-16 px-4 sm:px-6 lg:px-8">
+      <section id="categories" className="py-16 px-4 sm:px-6 lg:px-8" aria-labelledby="categories-heading">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">AI Transformation Categories</h2>
+            <h2 id="categories-heading" className="text-4xl font-bold mb-4">AI Transformation Categories</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Choose from our wide range of professional AI transformations
             </p>
@@ -330,13 +331,14 @@ export default function HomePage() {
                 key={category.id}
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-[#ff5757]/50 transition-all group cursor-pointer"
               >
-                <div className="aspect-square mb-3 rounded-lg overflow-hidden">
-                  <img 
-                    src={category.image} 
-                    alt={category.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+                  <div className="aspect-square mb-3 rounded-lg overflow-hidden">
+                    <img 
+                      src={category.image} 
+                      alt={`${category.title} - AI image transformation example`}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-[#ff5757] transition-colors">
                   {category.title}
                 </h3>

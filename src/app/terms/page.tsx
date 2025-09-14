@@ -1,3 +1,12 @@
+import { Metadata } from 'next';
+import { generateMetadata as generateSEOMetadata } from '@/config/seo';
+
+export const metadata: Metadata = generateSEOMetadata(
+  'Terms of Service - AI Image Generation Platform',
+  'Read the terms of service for MRPHUS AI image generation platform. Learn about user responsibilities, service availability, and usage policies.',
+  ['terms of service', 'terms', 'user agreement', 'service terms', 'legal terms', 'AI service terms']
+);
+
 'use client';
 
 import React from 'react';
