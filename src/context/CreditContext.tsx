@@ -18,7 +18,7 @@ interface CreditProviderProps {
 
 export const CreditProvider: React.FC<CreditProviderProps> = ({ children }) => {
   const [credits, setCredits] = useState<number>(10); // Default 10 free credits
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading] = useState<boolean>(false);
 
   // Load credits from localStorage on mount
   useEffect(() => {

@@ -6,7 +6,14 @@ import { ArrowLeft, Download, Share2, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 // Gallery will be populated with user-generated images
-const galleryImages: any[] = [];
+const galleryImages: Array<{
+  id: number;
+  src: string;
+  title: string;
+  category: string;
+  likes: number;
+  downloads: number;
+}> = [];
 
 const categories = ['All', 'AI Enhancement', 'Style Transfer', 'Background Edit'];
 

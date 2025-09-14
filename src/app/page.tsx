@@ -5,31 +5,19 @@ import { motion } from 'framer-motion';
 import { 
   Camera, 
   Sparkles, 
-  Download, 
-  Share2, 
-  Settings, 
   GalleryVertical,
   Menu,
   X,
   User,
-  LogIn,
   ArrowRight,
-  Star,
-  Users,
-  Zap,
-  Send,
-  Image as ImageIcon,
-  Wand2,
   ChevronRight
 } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { useCredits } from '@/context/CreditContext';
-import { Category } from '@/types';
 import { aiService } from '@/services/aiService';
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [chatInput, setChatInput] = useState<string>('');
   const [isProcessing, setIsProcessing] = useState(false);
   const { credits, deductCredit } = useCredits();
@@ -328,7 +316,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.filter(cat => cat.id !== '26').map((category, index) => (
+            {categories.filter(cat => cat.id !== '26').map((category) => (
               <div
                 key={category.id}
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-[#ff5757]/50 transition-all group cursor-pointer"
