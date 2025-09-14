@@ -10,7 +10,8 @@ import {
   X,
   User,
   ArrowRight,
-  ChevronRight
+  ChevronRight,
+  Image as ImageIcon
 } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { useCredits } from '@/context/CreditContext';
