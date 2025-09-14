@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/', '/_next/'],
     },
-    sitemap: 'https://mrphus.ai/sitemap.xml',
+    sitemap: 'https://mrphus-web.vercel.app/sitemap.xml',
   }
 }

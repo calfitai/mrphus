@@ -414,7 +414,8 @@ export default function HomePage() {
               <ul className="space-y-3">
                 <li><a href="/app" className="text-gray-400 hover:text-white transition-colors">AI Generator</a></li>
                 <li><a href="/app?mode=blur" className="text-gray-400 hover:text-white transition-colors">Blur Photo Fix</a></li>
-                <li><a href="#categories" className="text-gray-400 hover:text-white transition-colors">Categories</a></li>
+                <li><a href="/gallery" className="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                <li><a href="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
               </ul>
             </div>
             

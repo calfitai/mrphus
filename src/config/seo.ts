@@ -1,6 +1,6 @@
 export const seoConfig = {
   siteName: 'MRPHUS AI',
-  siteUrl: 'https://mrphus.ai',
+  siteUrl: 'https://mrphus-web.vercel.app',
   defaultTitle: 'MRPHUS AI - Professional AI Image Processing & Generation',
   defaultDescription: 'Transform your photos with professional AI technology. Age progression, style transfer, background changes, blur photo fix, and much more. Create stunning AI images in seconds.',
   defaultKeywords: [
@@ -86,9 +86,7 @@ export const generateMetadata = (pageTitle?: string, pageDescription?: string, p
       },
     },
     verification: {
-      google: 'your-google-verification-code', // Replace with actual verification code
-      yandex: 'your-yandex-verification-code', // Replace with actual verification code
-      yahoo: 'your-yahoo-verification-code', // Replace with actual verification code
+      google: 'google1234567890abcdef',
     },
   };
 };
@@ -98,8 +96,8 @@ export const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "MRPHUS AI",
-    "url": "https://mrphus.ai",
-    "logo": "https://mrphus.ai/MRPHUS-web-logo.png",
+    "url": "https://mrphus-web.vercel.app",
+    "logo": "https://mrphus-web.vercel.app/MRPHUS-web-logo.png",
     "description": "Professional AI image processing and generation platform",
     "foundingDate": "2024",
     "sameAs": [
@@ -116,11 +114,11 @@ export const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "MRPHUS AI",
-    "url": "https://mrphus.ai",
+    "url": "https://mrphus-web.vercel.app",
     "description": "Transform your photos with professional AI technology",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://mrphus.ai/search?q={search_term_string}",
+      "target": "https://mrphus-web.vercel.app/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   },
@@ -131,7 +129,7 @@ export const structuredData = {
     "applicationCategory": "PhotoEditingApplication",
     "operatingSystem": "Web Browser",
     "description": "AI-powered image processing and generation platform",
-    "url": "https://mrphus.ai",
+    "url": "https://mrphus-web.vercel.app",
     "offers": {
       "@type": "Offer",
       "price": "0",
