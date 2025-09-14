@@ -369,7 +369,7 @@ export default function HomePage() {
           </div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
           {/* Main Content */}
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
@@ -469,7 +469,7 @@ export default function HomePage() {
           </div>
           
           {/* Bottom Section */}
-          <div className="border-t border-white/10 pt-8">
+          <div className="border-t border-white/10 pt-8 pb-0">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-sm">
                 © 2024 Mrphus AI. All rights reserved. Made with passion for creators.
