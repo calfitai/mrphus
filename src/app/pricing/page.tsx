@@ -31,7 +31,7 @@ const pricingPlans = [
   {
     id: 'pro',
     name: 'Pro',
-    price: '$19',
+    price: '$5',
     period: 'per month',
     description: 'For creators who need more power',
     icon: Star,
@@ -52,7 +52,7 @@ const pricingPlans = [
   {
     id: 'enterprise',
     name: 'Enterprise',
-    price: '$99',
+    price: '$25',
     period: 'per month',
     description: 'For teams and businesses',
     icon: Crown,
@@ -63,8 +63,6 @@ const pricingPlans = [
       '24/7 dedicated support',
       'No watermarks',
       'All advanced features',
-      'API access',
-      'Custom integrations',
       'Team collaboration',
       'Priority processing',
       'Custom branding'
@@ -81,12 +79,16 @@ const faqs = [
     answer: 'Each AI generation consumes one credit. Free users get 5 credits per day, Pro users get 100 credits per day, and Enterprise users have unlimited credits.'
   },
   {
+    question: 'What are watermarks and how do I remove them?',
+    answer: 'Free plan results include a watermark. To remove watermarks and get clean results, upgrade to Pro ($5/month) or Enterprise ($25/month) plans.'
+  },
+  {
     question: 'Can I cancel my subscription anytime?',
     answer: 'Yes, you can cancel your subscription at any time. You\'ll continue to have access to your plan features until the end of your billing period.'
   },
   {
     question: 'What payment methods do you accept?',
-    answer: 'We accept all major credit cards, PayPal, and bank transfers for Enterprise plans.'
+    answer: 'We accept all major credit cards and PayPal for all plans.'
   },
   {
     question: 'Is there a free trial for paid plans?',
@@ -235,9 +237,9 @@ export default function PricingPage() {
                       ['Image Quality', 'Standard', 'High', 'Ultra High'],
                       ['Watermarks', 'Yes', 'No', 'No'],
                       ['Support', 'Community', 'Priority', '24/7 Dedicated'],
-                      ['API Access', 'No', 'No', 'Yes'],
-                      ['Custom Integrations', 'No', 'No', 'Yes'],
-                      ['Team Collaboration', 'No', 'No', 'Yes']
+                      ['Team Collaboration', 'No', 'No', 'Yes'],
+                      ['Custom Branding', 'No', 'No', 'Yes'],
+                      ['Priority Processing', 'No', 'No', 'Yes']
                     ].map(([feature, free, pro, enterprise], index) => (
                       <tr key={index} className="border-t border-white/10">
                         <td className="p-6 font-medium">{feature}</td>
