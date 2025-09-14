@@ -469,7 +469,7 @@ export default function HomePage() {
           </div>
           
           {/* Bottom Section */}
-          <div className="border-t border-white/10 pt-4 pb-0">
+          <div className="border-t border-white/10 pt-2 pb-2">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-sm">
                 © 2024 Mrphus AI. All rights reserved. Made with passion for creators.
