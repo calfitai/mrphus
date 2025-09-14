@@ -442,8 +442,19 @@ export default function HomePage() {
                 © 2024 Mrphus AI. All rights reserved. Made with passion for creators.
               </div>
               <div className="flex items-center space-x-6 text-sm text-gray-400">
-                <span>Available in 12+ languages</span>
-                <span>Powered by advanced AI</span>
+                <span>Powered by Searcly Teknoloji A.Ş.</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <img 
+                  src="/Inception_Social_Ima.png" 
+                  alt="NVIDIA Inception Startup Program" 
+                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                />
+                <img 
+                  src="/google-startup-program.png" 
+                  alt="Google Startup Program" 
+                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                />
               </div>
             </div>
           </div>
