@@ -35,6 +35,11 @@ export default function AppPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Generate unique ID function
+  const generateUniqueId = (prefix: string) => {
+    return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}-${Math.random().toString(36).substr(2, 9)}`;
+  };
+
   // Check URL parameters for pre-selected category and prompt
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -51,7 +56,7 @@ export default function AppPage() {
     } else if (prompt && category) {
       // Handle text-to-image generation from homepage
       const systemMessage: Message = {
-        id: `url-prompt-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        id: generateUniqueId('url-prompt'),
         type: 'system',
         content: `Text prompt alındı: "${prompt}"`,
         timestamp: new Date()
@@ -81,7 +86,7 @@ export default function AppPage() {
         
         // Add user message
         const newMessage: Message = {
-          id: `user-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          id: generateUniqueId('user'),
           type: 'user',
           content: 'Resim yüklendi',
           image: result,
@@ -107,14 +112,14 @@ export default function AppPage() {
     
     // Add system message with prompt
     const systemMessage: Message = {
-      id: `system-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      id: generateUniqueId('system'),
       type: 'system',
       content: `Kategori seçildi: ${category.title}`,
       timestamp: new Date()
     };
     
     const promptMessage: Message = {
-      id: `prompt-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      id: generateUniqueId('prompt'),
       type: 'system',
       content: `Prompt hazırlandı: ${category.prompt}`,
       timestamp: new Date()
@@ -133,7 +138,7 @@ export default function AppPage() {
     
     // Add processing message
     const processingMessage: Message = {
-      id: `processing-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      id: generateUniqueId('processing'),
       type: 'ai',
       content: 'AI işleme başladı...',
       timestamp: new Date()
@@ -150,7 +155,7 @@ export default function AppPage() {
       
       if (result.success && result.resultImage) {
         const resultMessage: Message = {
-          id: `result-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          id: generateUniqueId('result'),
           type: 'ai',
           content: 'İşlem tamamlandı! Sonucunuz hazır.',
           image: result.resultImage,
@@ -159,7 +164,7 @@ export default function AppPage() {
         setMessages(prev => [...prev, resultMessage]);
       } else {
         const errorMessage: Message = {
-          id: `error-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          id: generateUniqueId('error'),
           type: 'ai',
           content: `Hata: ${result.error || 'Bilinmeyen hata oluştu'}`,
           timestamp: new Date()
@@ -168,7 +173,7 @@ export default function AppPage() {
       }
     } catch (error) {
       const errorMessage: Message = {
-        id: `catch-error-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        id: generateUniqueId('catch-error'),
         type: 'ai',
         content: 'AI işleme sırasında hata oluştu. Lütfen tekrar deneyin.',
         timestamp: new Date()
