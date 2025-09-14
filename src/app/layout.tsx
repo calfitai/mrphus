@@ -30,6 +30,12 @@ export default function RootLayout({
         {/* Preload critical images */}
         <link rel="preload" as="image" href="/hero-background.png" />
         <link rel="preload" as="image" href="/MRPHUS-web-logo.png" />
+        <link rel="preload" as="image" href="/images/blur-gorsel.png" />
+        <link rel="preload" as="image" href="/images/Age Progression.jpeg" />
+        <link rel="preload" as="image" href="/images/Style Transfer.jpeg" />
+        <link rel="preload" as="image" href="/images/Background Change.jpeg" />
+        <link rel="preload" as="image" href="/images/Artistic Portrait.jpeg" />
+        <link rel="preload" as="image" href="/images/Cartoon Style.jpeg" />
         
         <script
           type="application/ld+json"

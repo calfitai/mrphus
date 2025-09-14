@@ -278,6 +278,8 @@ export default function HomePage() {
                       src="/images/blur-gorsel.png" 
                       alt="Blur Photo Fix"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="eager"
+                      fetchPriority="high"
                     />
                   </div>
                 </div>
@@ -311,7 +313,8 @@ export default function HomePage() {
                       src={category.image} 
                       alt={`${category.title} - AI image transformation example`}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
+                      loading="eager"
+                      fetchPriority="high"
                     />
                   </div>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-[#ff5757] transition-colors">
