@@ -51,7 +51,7 @@ export default function AppPage() {
     } else if (prompt && category) {
       // Handle text-to-image generation from homepage
       const systemMessage: Message = {
-        id: Date.now().toString(),
+        id: `url-prompt-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         type: 'system',
         content: `Text prompt alındı: "${prompt}"`,
         timestamp: new Date()
@@ -81,7 +81,7 @@ export default function AppPage() {
         
         // Add user message
         const newMessage: Message = {
-          id: Date.now().toString(),
+          id: `user-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
           type: 'user',
           content: 'Resim yüklendi',
           image: result,
@@ -107,14 +107,14 @@ export default function AppPage() {
     
     // Add system message with prompt
     const systemMessage: Message = {
-      id: Date.now().toString(),
+      id: `system-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       type: 'system',
       content: `Kategori seçildi: ${category.title}`,
       timestamp: new Date()
     };
     
     const promptMessage: Message = {
-      id: (Date.now() + 1).toString(),
+      id: `prompt-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       type: 'system',
       content: `Prompt hazırlandı: ${category.prompt}`,
       timestamp: new Date()
@@ -133,7 +133,7 @@ export default function AppPage() {
     
     // Add processing message
     const processingMessage: Message = {
-      id: Date.now().toString(),
+      id: `processing-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       type: 'ai',
       content: 'AI işleme başladı...',
       timestamp: new Date()
@@ -150,7 +150,7 @@ export default function AppPage() {
       
       if (result.success && result.resultImage) {
         const resultMessage: Message = {
-          id: (Date.now() + 1).toString(),
+          id: `result-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
           type: 'ai',
           content: 'İşlem tamamlandı! Sonucunuz hazır.',
           image: result.resultImage,
@@ -159,7 +159,7 @@ export default function AppPage() {
         setMessages(prev => [...prev, resultMessage]);
       } else {
         const errorMessage: Message = {
-          id: (Date.now() + 1).toString(),
+          id: `error-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
           type: 'ai',
           content: `Hata: ${result.error || 'Bilinmeyen hata oluştu'}`,
           timestamp: new Date()
@@ -168,7 +168,7 @@ export default function AppPage() {
       }
     } catch (error) {
       const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: `catch-error-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         type: 'ai',
         content: 'AI işleme sırasında hata oluştu. Lütfen tekrar deneyin.',
         timestamp: new Date()
