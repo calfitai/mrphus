@@ -369,7 +369,7 @@ export default function HomePage() {
           </div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
           {/* Main Content */}
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
