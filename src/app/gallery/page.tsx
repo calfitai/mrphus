@@ -5,104 +5,8 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Download, Share2, Heart } from 'lucide-react';
 import Link from 'next/link';
 
-const galleryImages = [
-  {
-    id: 1,
-    src: '/images/Age Progression.jpeg',
-    title: 'Age Progression',
-    category: 'AI Enhancement',
-    likes: 1247,
-    downloads: 892
-  },
-  {
-    id: 2,
-    src: '/images/Artistic Portrait.jpeg',
-    title: 'Artistic Portrait',
-    category: 'Style Transfer',
-    likes: 2156,
-    downloads: 1456
-  },
-  {
-    id: 3,
-    src: '/images/Baby version.jpeg',
-    title: 'Baby Version',
-    category: 'AI Enhancement',
-    likes: 1890,
-    downloads: 1234
-  },
-  {
-    id: 4,
-    src: '/images/Background Change.jpeg',
-    title: 'Background Change',
-    category: 'Background Edit',
-    likes: 3421,
-    downloads: 2789
-  },
-  {
-    id: 5,
-    src: '/images/Cartoon Style.jpeg',
-    title: 'Cartoon Style',
-    category: 'Style Transfer',
-    likes: 4567,
-    downloads: 3456
-  },
-  {
-    id: 6,
-    src: '/images/Expression Change.png',
-    title: 'Expression Change',
-    category: 'AI Enhancement',
-    likes: 2345,
-    downloads: 1789
-  },
-  {
-    id: 7,
-    src: '/images/Fantasy World.jpeg',
-    title: 'Fantasy World',
-    category: 'Style Transfer',
-    likes: 5678,
-    downloads: 4234
-  },
-  {
-    id: 8,
-    src: '/images/Glamorous Makeup.png',
-    title: 'Glamorous Makeup',
-    category: 'AI Enhancement',
-    likes: 3456,
-    downloads: 2567
-  },
-  {
-    id: 9,
-    src: '/images/Professional Look.jpeg',
-    title: 'Professional Look',
-    category: 'AI Enhancement',
-    likes: 2789,
-    downloads: 1987
-  },
-  {
-    id: 10,
-    src: '/images/Style Transfer.jpeg',
-    title: 'Style Transfer',
-    category: 'Style Transfer',
-    likes: 4123,
-    downloads: 3123
-  },
-  {
-    id: 11,
-    src: '/images/Vintage.jpeg',
-    title: 'Vintage Style',
-    category: 'Style Transfer',
-    likes: 2987,
-    downloads: 2134
-  },
-  {
-    id: 12,
-    src: '/images/colorize.png',
-    title: 'Colorize',
-    category: 'AI Enhancement',
-    likes: 1876,
-    downloads: 1456
-  }
-];
+// Gallery will be populated with user-generated images
+const galleryImages: any[] = [];
 
 const categories = ['All', 'AI Enhancement', 'Style Transfer', 'Background Edit'];
 
@@ -138,10 +42,10 @@ export default function GalleryPage() {
           {/* Hero Section */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-[#ff5757] to-white bg-clip-text text-transparent">
-              AI Gallery
+              Community Gallery
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Explore stunning AI-generated images created by our community. 
+              Discover amazing AI-generated images created by our community. 
               Get inspired and see the endless possibilities of AI image transformation.
             </p>
           </div>
@@ -164,42 +68,62 @@ export default function GalleryPage() {
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredImages.map((image) => (
-              <motion.div
-                key={image.id}
-                className="group relative bg-white/5 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300"
-                whileHover={{ y: -5 }}
-                onClick={() => setSelectedImage(image)}
-              >
-                <div className="aspect-square relative overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                </div>
-                
-                <div className="p-4">
-                  <h3 className="font-semibold text-white mb-1">{image.title}</h3>
-                  <p className="text-sm text-gray-400 mb-3">{image.category}</p>
+          {filteredImages.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredImages.map((image) => (
+                <motion.div
+                  key={image.id}
+                  className="group relative bg-white/5 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300"
+                  whileHover={{ y: -5 }}
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <div className="aspect-square relative overflow-hidden">
+                    <img
+                      src={image.src}
+                      alt={image.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                  </div>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-500">
-                    <div className="flex items-center space-x-1">
-                      <Heart className="w-4 h-4" />
-                      <span>{image.likes.toLocaleString()}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Download className="w-4 h-4" />
-                      <span>{image.downloads.toLocaleString()}</span>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-white mb-1">{image.title}</h3>
+                    <p className="text-sm text-gray-400 mb-3">{image.category}</p>
+                    
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center space-x-1">
+                        <Heart className="w-4 h-4" />
+                        <span>{image.likes.toLocaleString()}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Download className="w-4 h-4" />
+                        <span>{image.downloads.toLocaleString()}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Gallery is Empty</h3>
+              <p className="text-gray-400 mb-8 max-w-md mx-auto">
+                No images have been generated yet. Be the first to create amazing AI images and see them featured here!
+              </p>
+              <Link
+                href="/app"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] text-white font-semibold rounded-full hover:from-[#ff6b6b] hover:to-[#ff9a9a] transition-all duration-300 transform hover:scale-105"
+              >
+                Start Creating Now
+              </Link>
+            </div>
+          )}
 
           {/* CTA Section */}
           <div className="text-center mt-16">
