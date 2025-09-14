@@ -2,14 +2,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Camera, 
-  Sparkles, 
-  Download, 
-  Share2, 
+import {
+  Camera,
+  Download,
+  Share2,
   ArrowLeft,
-  Send,
-  Image as ImageIcon,
   X,
   Loader2
 } from 'lucide-react';
@@ -171,7 +168,7 @@ export default function AppPage() {
         };
         setMessages(prev => [...prev, errorMessage]);
       }
-    } catch (error) {
+    } catch {
       const errorMessage: Message = {
         id: generateUniqueId('catch-error'),
         type: 'ai',

@@ -89,7 +89,7 @@ export default function HelpPage() {
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                   <h3 className="font-semibold mb-2">How do I fix blurry photos?</h3>
-                  <p className="text-gray-400">Click on "Blur Photo Fix" or upload an image using the upload button. Our AI will automatically enhance and sharpen your blurry photos.</p>
+                  <p className="text-gray-400">Click on &quot;Blur Photo Fix&quot; or upload an image using the upload button. Our AI will automatically enhance and sharpen your blurry photos.</p>
                 </div>
               </div>
             </motion.section>
@@ -111,7 +111,7 @@ export default function HelpPage() {
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                   <h3 className="font-semibold mb-2">Can I upload my own images?</h3>
-                  <p className="text-gray-400">Yes! You can upload your own images and use them with any of our categories. Simply click "Upload Image" and select your photo, then choose a category for transformation.</p>
+                  <p className="text-gray-400">Yes! You can upload your own images and use them with any of our categories. Simply click &quot;Upload Image&quot; and select your photo, then choose a category for transformation.</p>
                 </div>
               </div>
             </motion.section>
@@ -128,7 +128,7 @@ export default function HelpPage() {
               </h2>
               <div className="bg-gradient-to-r from-[#ff5757]/20 to-[#ff5757]/10 backdrop-blur-sm rounded-xl p-8 border border-[#ff5757]/30">
                 <h3 className="text-xl font-bold mb-4">Contact Our Support Team</h3>
-                <p className="text-gray-300 mb-6">Can't find what you're looking for? Our support team is here to help you with any questions or issues.</p>
+                <p className="text-gray-300 mb-6">Can&apos;t find what you&apos;re looking for? Our support team is here to help you with any questions or issues.</p>
                 <Link 
                   href="/contact"
                   className="inline-flex items-center bg-[#ff5757] hover:bg-[#ff4444] text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"

@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     if (!process.env.NEXT_PUBLIC_GEMINI_API_KEY) {
       return NextResponse.json(

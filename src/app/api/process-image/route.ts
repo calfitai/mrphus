@@ -72,9 +72,9 @@ Requirements:
 - Ensure high quality and realistic appearance
 - The result should be a professional, enhanced version of the original`;
 
-    // Generate the transformed image
-    const imageResult = await model.generateContent([imageGenerationPrompt, imagePart]);
-    const imageResponse = await imageResult.response;
+          // Generate the transformed image
+          const imageResult = await model.generateContent([imageGenerationPrompt, imagePart]);
+          // const imageResponse = await imageResult.response;
     
     // For now, we'll return the original image with enhanced processing
     // In a full implementation, you would extract the generated image from the response

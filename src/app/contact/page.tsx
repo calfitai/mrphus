@@ -66,7 +66,7 @@ export default function ContactPage() {
               transition={{ delay: 0.1 }}
               className="text-xl text-gray-400 max-w-2xl mx-auto"
             >
-              Have a question or need support? We're here to help you with your AI image generation needs.
+              Have a question or need support? We&apos;re here to help you with your AI image generation needs.
             </motion.p>
           </div>
 
@@ -175,12 +175,12 @@ export default function ContactPage() {
                 
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                   <h3 className="font-semibold mb-2">Technical Issues</h3>
-                  <p className="text-gray-400">Experiencing problems with image generation, uploads, or technical difficulties? We're here to help.</p>
+                  <p className="text-gray-400">Experiencing problems with image generation, uploads, or technical difficulties? We&apos;re here to help.</p>
                 </div>
                 
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                   <h3 className="font-semibold mb-2">Business Inquiries</h3>
-                  <p className="text-gray-400">Interested in partnerships, enterprise solutions, or have business-related questions? Let's talk.</p>
+                  <p className="text-gray-400">Interested in partnerships, enterprise solutions, or have business-related questions? Let&apos;s talk.</p>
                 </div>
               </div>
 
@@ -188,7 +188,7 @@ export default function ContactPage() {
                 <h3 className="font-bold mb-2">Response Time</h3>
                 <p className="text-gray-300 text-sm">
                   We aim to respond to all messages within 24 hours during business days. 
-                  For urgent technical issues, we'll prioritize your request.
+                  For urgent technical issues, we&apos;ll prioritize your request.
                 </p>
               </div>
             </motion.div>
