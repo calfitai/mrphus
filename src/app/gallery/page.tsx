@@ -152,21 +152,6 @@ export default function GalleryPage() {
                 </div>
               </div>
 
-              {/* Stats Section */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#ff5757] mb-2">10+</div>
-                  <div className="text-gray-400">AI Categories</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#ff5757] mb-2">∞</div>
-                  <div className="text-gray-400">Possibilities</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#ff5757] mb-2">24/7</div>
-                  <div className="text-gray-400">AI Processing</div>
-                </div>
-              </div>
             </div>
           )}
         </div>
