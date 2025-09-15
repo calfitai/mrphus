@@ -94,7 +94,7 @@ const pricingPlans = [
 const faqs = [
   {
     question: 'How does the credit system work?',
-    answer: 'Each AI generation consumes one credit. Free users get 10 credits lifetime, Starter plan gives 100 credits lifetime, Pro plan gives 300 credits lifetime, and Business plan gives 1000 credits lifetime.'
+    answer: 'Each AI generation using Google Gemini 2.5 Flash (Nano Banana) consumes one credit. Free users get 10 credits lifetime, Starter plan gives 100 credits lifetime, Pro plan gives 300 credits lifetime, and Business plan gives 1000 credits lifetime.'
   },
   {
     question: 'What are watermarks and how do I remove them?',
