@@ -11,7 +11,6 @@ const pricingPlans = [
     name: 'Free',
     monthlyPrice: '$0',
     yearlyPrice: '$0',
-    lifetimePrice: '$0',
     period: 'forever',
     description: 'Perfect for trying out our AI features',
     icon: Zap,
@@ -35,7 +34,6 @@ const pricingPlans = [
     name: 'Starter',
     monthlyPrice: '$5',
     yearlyPrice: '$50',
-    lifetimePrice: '$15',
     period: 'month',
     description: 'For casual creators',
     icon: Star,
@@ -56,7 +54,6 @@ const pricingPlans = [
     name: 'Pro',
     monthlyPrice: '$15',
     yearlyPrice: '$150',
-    lifetimePrice: '$35',
     period: 'month',
     description: 'For serious creators',
     icon: Crown,
@@ -78,7 +75,6 @@ const pricingPlans = [
     name: 'Business',
     monthlyPrice: '$35',
     yearlyPrice: '$350',
-    lifetimePrice: '$99',
     period: 'month',
     description: 'For businesses and teams',
     icon: Crown,
@@ -99,6 +95,76 @@ const pricingPlans = [
   }
 ];
 
+const lifetimePlans = [
+  {
+    id: 'lifetime-starter',
+    name: 'Starter Lifetime',
+    price: '$99',
+    period: 'lifetime',
+    description: 'One-time payment, use forever',
+    icon: Star,
+    features: [
+      '1000 AI generations (lifetime)',
+      'Premium image processing',
+      'High quality output',
+      'Priority support',
+      'No watermarks',
+      'Advanced editing tools',
+      'All Nano Banana features'
+    ],
+    limitations: [],
+    cta: 'Buy Now',
+    popular: false
+  },
+  {
+    id: 'lifetime-pro',
+    name: 'Pro Lifetime',
+    price: '$199',
+    period: 'lifetime',
+    description: 'Best value for creators',
+    icon: Crown,
+    features: [
+      '3000 AI generations (lifetime)',
+      'Professional image processing',
+      'Ultra high quality output',
+      'Priority support',
+      'No watermarks',
+      'All advanced features',
+      'Batch processing',
+      'All Nano Banana features',
+      'Commercial license'
+    ],
+    limitations: [],
+    cta: 'Buy Now',
+    popular: true
+  },
+  {
+    id: 'lifetime-business',
+    name: 'Business Lifetime',
+    price: '$399',
+    period: 'lifetime',
+    description: 'For businesses and teams',
+    icon: Crown,
+    features: [
+      '10000 AI generations (lifetime)',
+      'Professional image processing',
+      'Ultra high quality output',
+      '24/7 dedicated support',
+      'No watermarks',
+      'All advanced features',
+      'Batch processing',
+      'API access',
+      'Custom branding',
+      'All Nano Banana features',
+      'Commercial license',
+      'Team collaboration'
+    ],
+    limitations: [],
+    cta: 'Contact Sales',
+    popular: false
+  }
+];
+
 const faqs = [
   {
     question: 'How does the credit system work?',
@@ -110,7 +176,7 @@ const faqs = [
   },
   {
     question: 'What billing options do you offer?',
-    answer: 'We offer three billing options: Monthly (recurring), Yearly (17% savings), and Lifetime (one-time payment, best value). Choose what works best for you!'
+    answer: 'We offer Monthly and Yearly subscription plans, plus Lifetime plans (one-time payment, use forever). Lifetime plans offer the best long-term value with no recurring charges.'
   },
   {
     question: 'What payment methods do you accept?',
@@ -173,27 +239,19 @@ export default function PricingPage() {
                 Monthly
               </span>
               <button
-                onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : billingPeriod === 'yearly' ? 'lifetime' : 'monthly')}
-                className="relative w-16 h-6 bg-white/20 rounded-full transition-colors"
+                onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly')}
+                className="relative w-12 h-6 bg-white/20 rounded-full transition-colors"
               >
                 <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                  billingPeriod === 'yearly' ? 'translate-x-6' : billingPeriod === 'lifetime' ? 'translate-x-11' : ''
+                  billingPeriod === 'yearly' ? 'translate-x-6' : ''
                 }`} />
               </button>
               <span className={`text-sm ${billingPeriod === 'yearly' ? 'text-white' : 'text-gray-400'}`}>
                 Yearly
               </span>
-              <span className={`text-sm ${billingPeriod === 'lifetime' ? 'text-white' : 'text-gray-400'}`}>
-                Lifetime
-              </span>
               {billingPeriod === 'yearly' && (
                 <span className="text-xs bg-[#ff5757] text-white px-2 py-1 rounded-full">
                   Save 17%
-                </span>
-              )}
-              {billingPeriod === 'lifetime' && (
-                <span className="text-xs bg-[#ff5757] text-white px-2 py-1 rounded-full">
-                  Best Value
                 </span>
               )}
             </div>
@@ -227,14 +285,10 @@ export default function PricingPage() {
                     <p className="text-gray-400 mb-4">{plan.description}</p>
                     <div className="mb-4">
                       <span className="text-4xl font-bold text-white">
-                        {billingPeriod === 'monthly' ? plan.monthlyPrice :
-                         billingPeriod === 'yearly' ? plan.yearlyPrice :
-                         plan.lifetimePrice}
+                        {billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
                       </span>
                       <span className="text-gray-400 ml-2">
-                        /{billingPeriod === 'monthly' ? 'month' :
-                          billingPeriod === 'yearly' ? 'year' :
-                          'lifetime'}
+                        /{billingPeriod === 'monthly' ? 'month' : 'year'}
                       </span>
                     </div>
                   </div>
@@ -261,6 +315,73 @@ export default function PricingPage() {
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Lifetime Plans Section */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] bg-clip-text text-transparent">
+                🚀 Lifetime Plans - Pay Once, Use Forever
+              </h3>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                One-time payment, lifetime access. No recurring charges, no expiration dates.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {lifetimePlans.map((plan) => {
+                const Icon = plan.icon;
+                return (
+                  <motion.div
+                    key={plan.id}
+                    className={`relative bg-gradient-to-br from-[#ff5757]/10 to-[#ff8a8a]/5 rounded-2xl p-8 border ${
+                      plan.popular ? 'border-[#ff5757]/50 shadow-lg shadow-[#ff5757]/20' : 'border-[#ff5757]/20'
+                    } hover:border-[#ff5757]/40 transition-all duration-300`}
+                    whileHover={{ y: -5 }}
+                  >
+                    {plan.popular && (
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span className="bg-[#ff5757] text-white px-4 py-1 rounded-full text-sm font-medium">
+                          Best Value
+                        </span>
+                      </div>
+                    )}
+                    
+                    <div className="text-center mb-8">
+                      <div className="w-16 h-16 bg-[#ff5757]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Icon className="w-8 h-8 text-[#ff5757]" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                      <p className="text-gray-400 mb-4">{plan.description}</p>
+                      <div className="mb-4">
+                        <span className="text-4xl font-bold text-white">{plan.price}</span>
+                        <span className="text-gray-400 ml-2">/{plan.period}</span>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-4 mb-8">
+                      {plan.features.map((feature, index) => (
+                        <li key={index} className="flex items-start space-x-3">
+                          <Check className="w-5 h-5 text-[#ff5757] mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      href={plan.id === 'lifetime-business' ? '/contact' : '/app'}
+                      className={`w-full block text-center py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
+                        plan.popular
+                          ? 'bg-[#ff5757] text-white hover:bg-[#ff6b6b]'
+                          : 'bg-white/10 text-white hover:bg-white/20'
+                      }`}
+                    >
+                      {plan.cta}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Features Comparison */}

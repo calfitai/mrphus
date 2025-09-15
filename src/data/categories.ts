@@ -188,5 +188,47 @@ export const categories: Category[] = [
     description: 'Fix blurry photos instantly',
     prompt: 'Fix this blurry photo and make it crystal clear. CRITICAL: Use advanced AI image enhancement to remove blur, sharpen details, and improve overall image quality. Enhance facial features, restore sharpness to eyes, and improve skin texture. The result should be a high-quality, sharp image that maintains the original composition and lighting while significantly improving clarity and detail.',
     image: '/images/blur-fix.jpg'
+  },
+  {
+    id: '27',
+    title: 'Character Consistency',
+    description: 'Create consistent character stories',
+    prompt: 'Create a new scene with the same character from the reference image. CRITICAL: Maintain EXACT facial features - same eye shape, nose structure, mouth shape, and overall face proportions. Keep the same hair color, style, and texture. Preserve the same skin tone and facial characteristics. Only change the setting, clothing, or pose while keeping the character completely recognizable. This is for creating consistent character stories across multiple scenes.',
+    image: '/images/Character Consistency.png'
+  },
+  {
+    id: '28',
+    title: 'Multi-Turn Editing',
+    description: 'Step-by-step image building',
+    prompt: 'Continue building upon this image step by step. CRITICAL: Use the reference image as the foundation and add the requested elements while maintaining everything that\'s already there. This is for iterative image development - each step builds upon the previous one. Preserve all existing details, colors, and composition while adding new elements naturally and seamlessly.',
+    image: '/images/Multi-Turn Editing.png'
+  },
+  {
+    id: '29',
+    title: 'Design Mixing',
+    description: 'Blend different design elements',
+    prompt: 'Apply the style, color, and texture from one image to elements in another image. CRITICAL: Take specific design elements (colors, patterns, textures, materials) from the reference image and apply them to create a cohesive design. This is for creative design mixing - combining different visual elements to create something new while maintaining the original subject\'s identity and structure.',
+    image: '/images/Design Mixing.png'
+  },
+  {
+    id: '30',
+    title: 'Photo Blending',
+    description: 'Combine multiple photos',
+    prompt: 'Blend multiple photos together to create a new scene. CRITICAL: Use the reference images to create a seamless composition that combines elements from different photos. Maintain realistic lighting, shadows, and proportions. This is for creating composite images where multiple subjects or elements are combined into one cohesive scene while preserving the natural look and feel.',
+    image: '/images/Photo Blending.png'
+  },
+  {
+    id: '31',
+    title: 'Education Mode',
+    description: 'Create learning materials',
+    prompt: 'Transform this into an educational visual aid. CRITICAL: Use the reference image as a base and enhance it with educational elements like labels, diagrams, or explanatory visuals. Make it suitable for teaching and learning while maintaining the original subject\'s clarity and recognizability. This is for creating educational content that helps students understand concepts visually.',
+    image: '/images/Education Mode.png'
+  },
+  {
+    id: '32',
+    title: 'Natural Language Edit',
+    description: 'Edit with simple commands',
+    prompt: 'Apply the requested natural language edit to this image. CRITICAL: Use the reference image as the base and make only the specific changes requested in natural language (like "change the background to a beach" or "add a hat"). Maintain all other elements exactly as they are. This is for simple, intuitive image editing using everyday language commands.',
+    image: '/images/Natural Language Edit.png'
   }
 ];
