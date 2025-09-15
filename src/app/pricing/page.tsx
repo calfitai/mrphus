@@ -41,9 +41,7 @@ const pricingPlans = [
       'High quality output',
       'Priority support',
       'No watermarks',
-      'Advanced editing tools',
-      'Batch processing',
-      'Custom styles'
+      'Advanced editing tools'
     ],
     limitations: [],
     cta: 'Start Pro Trial',
@@ -62,10 +60,7 @@ const pricingPlans = [
       'Ultra high quality output',
       '24/7 dedicated support',
       'No watermarks',
-      'All advanced features',
-      'Team collaboration',
-      'Priority processing',
-      'Custom branding'
+      'All advanced features'
     ],
     limitations: [],
     cta: 'Contact Sales',
@@ -105,7 +100,7 @@ const faqs = [
 ];
 
 export default function PricingPage() {
-  const [selectedPlan, setSelectedPlan] = React.useState('pro');
+  const [billingPeriod, setBillingPeriod] = React.useState('monthly');
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -139,21 +134,21 @@ export default function PricingPage() {
             
             {/* Billing Toggle */}
             <div className="flex items-center justify-center space-x-4 mb-8">
-              <span className={`text-sm ${selectedPlan === 'monthly' ? 'text-white' : 'text-gray-400'}`}>
+              <span className={`text-sm ${billingPeriod === 'monthly' ? 'text-white' : 'text-gray-400'}`}>
                 Monthly
               </span>
               <button
-                onClick={() => setSelectedPlan(selectedPlan === 'monthly' ? 'yearly' : 'monthly')}
+                onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly')}
                 className="relative w-12 h-6 bg-white/20 rounded-full transition-colors"
               >
                 <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                  selectedPlan === 'yearly' ? 'translate-x-6' : ''
+                  billingPeriod === 'yearly' ? 'translate-x-6' : ''
                 }`} />
               </button>
-              <span className={`text-sm ${selectedPlan === 'yearly' ? 'text-white' : 'text-gray-400'}`}>
+              <span className={`text-sm ${billingPeriod === 'yearly' ? 'text-white' : 'text-gray-400'}`}>
                 Yearly
               </span>
-              {selectedPlan === 'yearly' && (
+              {billingPeriod === 'yearly' && (
                 <span className="text-xs bg-[#ff5757] text-white px-2 py-1 rounded-full">
                   Save 20%
                 </span>
@@ -188,8 +183,15 @@ export default function PricingPage() {
                     <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                     <p className="text-gray-400 mb-4">{plan.description}</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold text-white">{plan.price}</span>
-                      <span className="text-gray-400 ml-2">/{plan.period}</span>
+                      <span className="text-4xl font-bold text-white">
+                        {billingPeriod === 'yearly' && plan.id !== 'free' 
+                          ? `$${Math.round(parseInt(plan.price.replace('$', '')) * 10 * 0.8)}`
+                          : plan.price
+                        }
+                      </span>
+                      <span className="text-gray-400 ml-2">
+                        /{billingPeriod === 'yearly' && plan.id !== 'free' ? 'year' : plan.period}
+                      </span>
                     </div>
                   </div>
 
@@ -237,9 +239,7 @@ export default function PricingPage() {
                       ['Image Quality', 'Standard', 'High', 'Ultra High'],
                       ['Watermarks', 'Yes', 'No', 'No'],
                       ['Support', 'Community', 'Priority', '24/7 Dedicated'],
-                      ['Team Collaboration', 'No', 'No', 'Yes'],
-                      ['Custom Branding', 'No', 'No', 'Yes'],
-                      ['Priority Processing', 'No', 'No', 'Yes']
+                      ['Advanced Editing Tools', 'No', 'Yes', 'Yes']
                     ].map(([feature, free, pro, enterprise], index) => (
                       <tr key={index} className="border-t border-white/10">
                         <td className="p-6 font-medium">{feature}</td>
