@@ -168,7 +168,7 @@ const lifetimePlans = [
 const faqs = [
   {
     question: 'How does the credit system work?',
-    answer: 'Each AI generation using Google Gemini 2.5 Flash (Nano Banana) consumes one credit. Free users get 10 credits lifetime. Paid plans give monthly credits that reset each billing cycle, or lifetime credits for lifetime plans.'
+    answer: 'Each AI generation consumes one credit. Free users get 10 credits lifetime. Paid plans give monthly credits that reset each billing cycle, or lifetime credits for lifetime plans.'
   },
   {
     question: 'What are watermarks and how do I remove them?',
@@ -196,7 +196,7 @@ const faqs = [
   },
   {
     question: 'What AI model do you use?',
-    answer: 'We use Google Gemini 2.5 Flash (Nano Banana) for all image generation. Each generation costs us $0.039 in API fees, and we offer competitive lifetime pricing with no daily limits.'
+    answer: 'We use advanced AI technology for all image generation. Our pricing is competitive and offers great value with no daily limits.'
   }
 ];
 

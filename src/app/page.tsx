@@ -336,10 +336,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 id="nano-banana-heading" className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] bg-clip-text text-transparent">
-              🍌 Nano Banana Advanced Features
+              🚀 Advanced AI Features
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Powered by Google Gemini 2.5 Flash - Experience the most advanced AI image generation capabilities
+              Experience the most advanced AI image generation capabilities
             </p>
           </div>
 
@@ -368,7 +368,7 @@ export default function HomePage() {
                     <ArrowRight className="h-3 w-3 ml-1" />
                   </div>
                   <span className="text-xs bg-[#ff5757]/20 text-[#ff5757] px-2 py-1 rounded-full">
-                    Nano Banana
+                    Advanced AI
                   </span>
                 </div>
               </div>
@@ -377,7 +377,7 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <div className="bg-gradient-to-r from-[#ff5757]/20 to-[#ff8a8a]/20 rounded-2xl p-8 border border-[#ff5757]/30">
-              <h3 className="text-2xl font-bold mb-4 text-white">Why Nano Banana?</h3>
+              <h3 className="text-2xl font-bold mb-4 text-white">Why Choose Our AI?</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                 <div>
                   <h4 className="font-semibold text-[#ff5757] mb-2">Character Consistency</h4>
