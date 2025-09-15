@@ -9,7 +9,9 @@ const pricingPlans = [
   {
     id: 'free',
     name: 'Free',
-    price: '$0',
+    monthlyPrice: '$0',
+    yearlyPrice: '$0',
+    lifetimePrice: '$0',
     period: 'forever',
     description: 'Perfect for trying out our AI features',
     icon: Zap,
@@ -31,12 +33,14 @@ const pricingPlans = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '$15',
-    period: 'lifetime',
+    monthlyPrice: '$5',
+    yearlyPrice: '$50',
+    lifetimePrice: '$15',
+    period: 'month',
     description: 'For casual creators',
     icon: Star,
     features: [
-      '100 AI generations (lifetime)',
+      '100 AI generations',
       'Premium image processing',
       'High quality output',
       'Priority support',
@@ -44,18 +48,20 @@ const pricingPlans = [
       'Advanced editing tools'
     ],
     limitations: [],
-    cta: 'Buy Now',
+    cta: 'Start Trial',
     popular: true
   },
   {
     id: 'pro',
     name: 'Pro',
-    price: '$35',
-    period: 'lifetime',
+    monthlyPrice: '$15',
+    yearlyPrice: '$150',
+    lifetimePrice: '$35',
+    period: 'month',
     description: 'For serious creators',
     icon: Crown,
     features: [
-      '300 AI generations (lifetime)',
+      '300 AI generations',
       'Professional image processing',
       'Ultra high quality output',
       'Priority support',
@@ -64,18 +70,20 @@ const pricingPlans = [
       'Batch processing'
     ],
     limitations: [],
-    cta: 'Buy Now',
+    cta: 'Start Trial',
     popular: false
   },
   {
     id: 'business',
     name: 'Business',
-    price: '$99',
-    period: 'lifetime',
+    monthlyPrice: '$35',
+    yearlyPrice: '$350',
+    lifetimePrice: '$99',
+    period: 'month',
     description: 'For businesses and teams',
     icon: Crown,
     features: [
-      '1000 AI generations (lifetime)',
+      '1000 AI generations',
       'Professional image processing',
       'Ultra high quality output',
       '24/7 dedicated support',
@@ -94,15 +102,15 @@ const pricingPlans = [
 const faqs = [
   {
     question: 'How does the credit system work?',
-    answer: 'Each AI generation using Google Gemini 2.5 Flash (Nano Banana) consumes one credit. Free users get 10 credits lifetime, Starter plan gives 100 credits lifetime, Pro plan gives 300 credits lifetime, and Business plan gives 1000 credits lifetime.'
+    answer: 'Each AI generation using Google Gemini 2.5 Flash (Nano Banana) consumes one credit. Free users get 10 credits lifetime. Paid plans give monthly credits that reset each billing cycle, or lifetime credits for lifetime plans.'
   },
   {
     question: 'What are watermarks and how do I remove them?',
     answer: 'Free plan results include a watermark. To remove watermarks and get clean results, upgrade to any paid plan (Starter $15, Pro $35, or Business $99).'
   },
   {
-    question: 'Are these really lifetime plans?',
-    answer: 'Yes! All our plans are one-time payments with lifetime access. No monthly subscriptions, no recurring charges. Pay once and use forever.'
+    question: 'What billing options do you offer?',
+    answer: 'We offer three billing options: Monthly (recurring), Yearly (17% savings), and Lifetime (one-time payment, best value). Choose what works best for you!'
   },
   {
     question: 'What payment methods do you accept?',
@@ -127,6 +135,7 @@ const faqs = [
 ];
 
 export default function PricingPage() {
+  const [billingPeriod, setBillingPeriod] = React.useState('monthly');
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -155,8 +164,39 @@ export default function PricingPage() {
               Simple, Transparent Pricing
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-              Choose the perfect lifetime plan for your creative needs. Pay once, use forever.
+              Choose the perfect plan for your creative needs. Flexible billing options available.
             </p>
+            
+            {/* Billing Toggle */}
+            <div className="flex items-center justify-center space-x-4 mb-8">
+              <span className={`text-sm ${billingPeriod === 'monthly' ? 'text-white' : 'text-gray-400'}`}>
+                Monthly
+              </span>
+              <button
+                onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : billingPeriod === 'yearly' ? 'lifetime' : 'monthly')}
+                className="relative w-16 h-6 bg-white/20 rounded-full transition-colors"
+              >
+                <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                  billingPeriod === 'yearly' ? 'translate-x-6' : billingPeriod === 'lifetime' ? 'translate-x-11' : ''
+                }`} />
+              </button>
+              <span className={`text-sm ${billingPeriod === 'yearly' ? 'text-white' : 'text-gray-400'}`}>
+                Yearly
+              </span>
+              <span className={`text-sm ${billingPeriod === 'lifetime' ? 'text-white' : 'text-gray-400'}`}>
+                Lifetime
+              </span>
+              {billingPeriod === 'yearly' && (
+                <span className="text-xs bg-[#ff5757] text-white px-2 py-1 rounded-full">
+                  Save 17%
+                </span>
+              )}
+              {billingPeriod === 'lifetime' && (
+                <span className="text-xs bg-[#ff5757] text-white px-2 py-1 rounded-full">
+                  Best Value
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Pricing Cards */}
@@ -186,8 +226,16 @@ export default function PricingPage() {
                     <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                     <p className="text-gray-400 mb-4">{plan.description}</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold text-white">{plan.price}</span>
-                      <span className="text-gray-400 ml-2">/{plan.period}</span>
+                      <span className="text-4xl font-bold text-white">
+                        {billingPeriod === 'monthly' ? plan.monthlyPrice :
+                         billingPeriod === 'yearly' ? plan.yearlyPrice :
+                         plan.lifetimePrice}
+                      </span>
+                      <span className="text-gray-400 ml-2">
+                        /{billingPeriod === 'monthly' ? 'month' :
+                          billingPeriod === 'yearly' ? 'year' :
+                          'lifetime'}
+                      </span>
                     </div>
                   </div>
 
