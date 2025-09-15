@@ -14,14 +14,14 @@ const pricingPlans = [
     description: 'Perfect for trying out our AI features',
     icon: Zap,
     features: [
-      '5 AI generations per day',
+      '10 AI generations (lifetime)',
       'Basic image processing',
       'Standard quality output',
       'Community support',
       'Watermarked results'
     ],
     limitations: [
-      'Limited to 5 generations daily',
+      'Limited to 10 generations total',
       'Standard processing speed',
       'Basic support only'
     ],
@@ -29,14 +29,14 @@ const pricingPlans = [
     popular: false
   },
   {
-    id: 'pro',
-    name: 'Pro',
-    price: '$5',
-    period: 'per month',
-    description: 'For creators who need more power',
+    id: 'starter',
+    name: 'Starter',
+    price: '$15',
+    period: 'lifetime',
+    description: 'For casual creators',
     icon: Star,
     features: [
-      '100 AI generations per day',
+      '100 AI generations (lifetime)',
       'Premium image processing',
       'High quality output',
       'Priority support',
@@ -44,23 +44,46 @@ const pricingPlans = [
       'Advanced editing tools'
     ],
     limitations: [],
-    cta: 'Start Pro Trial',
+    cta: 'Buy Now',
     popular: true
   },
   {
-    id: 'enterprise',
-    name: 'Enterprise',
-    price: '$25',
-    period: 'per month',
-    description: 'For teams and businesses',
+    id: 'pro',
+    name: 'Pro',
+    price: '$35',
+    period: 'lifetime',
+    description: 'For serious creators',
     icon: Crown,
     features: [
-      'Unlimited AI generations',
+      '300 AI generations (lifetime)',
+      'Professional image processing',
+      'Ultra high quality output',
+      'Priority support',
+      'No watermarks',
+      'All advanced features',
+      'Batch processing'
+    ],
+    limitations: [],
+    cta: 'Buy Now',
+    popular: false
+  },
+  {
+    id: 'business',
+    name: 'Business',
+    price: '$99',
+    period: 'lifetime',
+    description: 'For businesses and teams',
+    icon: Crown,
+    features: [
+      '1000 AI generations (lifetime)',
       'Professional image processing',
       'Ultra high quality output',
       '24/7 dedicated support',
       'No watermarks',
-      'All advanced features'
+      'All advanced features',
+      'Batch processing',
+      'API access',
+      'Custom branding'
     ],
     limitations: [],
     cta: 'Contact Sales',
@@ -71,36 +94,35 @@ const pricingPlans = [
 const faqs = [
   {
     question: 'How does the credit system work?',
-    answer: 'Each AI generation consumes one credit. Free users get 5 credits per day, Pro users get 100 credits per day, and Enterprise users have unlimited credits.'
+    answer: 'Each AI generation consumes one credit. Free users get 10 credits lifetime, Starter plan gives 100 credits lifetime, Pro plan gives 300 credits lifetime, and Business plan gives 1000 credits lifetime.'
   },
   {
     question: 'What are watermarks and how do I remove them?',
-    answer: 'Free plan results include a watermark. To remove watermarks and get clean results, upgrade to Pro ($5/month) or Enterprise ($25/month) plans.'
+    answer: 'Free plan results include a watermark. To remove watermarks and get clean results, upgrade to any paid plan (Starter $15, Pro $35, or Business $99).'
   },
   {
-    question: 'Can I cancel my subscription anytime?',
-    answer: 'Yes, you can cancel your subscription at any time. You\'ll continue to have access to your plan features until the end of your billing period.'
+    question: 'Are these really lifetime plans?',
+    answer: 'Yes! All our plans are one-time payments with lifetime access. No monthly subscriptions, no recurring charges. Pay once and use forever.'
   },
   {
     question: 'What payment methods do you accept?',
-    answer: 'We accept all major credit cards and PayPal for all plans.'
-  },
-  {
-    question: 'Is there a free trial for paid plans?',
-    answer: 'Yes! Pro plan comes with a 7-day free trial. Enterprise plans include a 14-day free trial.'
+    answer: 'We accept all major credit cards, PayPal, and cryptocurrency for all plans.'
   },
   {
     question: 'Do you offer refunds?',
-    answer: 'We offer a 30-day money-back guarantee for all paid plans. If you\'re not satisfied, contact our support team.'
+    answer: 'We offer a 30-day money-back guarantee for all paid plans. If you\'re not satisfied, contact our support team for a full refund.'
   },
   {
-    question: 'Can I upgrade or downgrade my plan?',
-    answer: 'Yes, you can change your plan at any time. Upgrades take effect immediately, downgrades take effect at the next billing cycle.'
+    question: 'Can I upgrade my plan later?',
+    answer: 'Yes, you can upgrade to a higher plan anytime. We\'ll credit your previous purchase towards the new plan.'
+  },
+  {
+    question: 'What happens if I run out of credits?',
+    answer: 'You can purchase additional credit packs or upgrade to a higher plan. Credits never expire and can be used anytime.'
   }
 ];
 
 export default function PricingPage() {
-  const [billingPeriod, setBillingPeriod] = React.useState('monthly');
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -129,35 +151,12 @@ export default function PricingPage() {
               Simple, Transparent Pricing
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-              Choose the perfect plan for your creative needs. Start free and upgrade anytime.
+              Choose the perfect lifetime plan for your creative needs. Pay once, use forever.
             </p>
-            
-            {/* Billing Toggle */}
-            <div className="flex items-center justify-center space-x-4 mb-8">
-              <span className={`text-sm ${billingPeriod === 'monthly' ? 'text-white' : 'text-gray-400'}`}>
-                Monthly
-              </span>
-              <button
-                onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly')}
-                className="relative w-12 h-6 bg-white/20 rounded-full transition-colors"
-              >
-                <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                  billingPeriod === 'yearly' ? 'translate-x-6' : ''
-                }`} />
-              </button>
-              <span className={`text-sm ${billingPeriod === 'yearly' ? 'text-white' : 'text-gray-400'}`}>
-                Yearly
-              </span>
-              {billingPeriod === 'yearly' && (
-                <span className="text-xs bg-[#ff5757] text-white px-2 py-1 rounded-full">
-                  Save 20%
-                </span>
-              )}
-            </div>
           </div>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {pricingPlans.map((plan) => {
               const Icon = plan.icon;
               return (
@@ -183,15 +182,8 @@ export default function PricingPage() {
                     <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                     <p className="text-gray-400 mb-4">{plan.description}</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold text-white">
-                        {billingPeriod === 'yearly' && plan.id !== 'free' 
-                          ? `$${Math.round(parseInt(plan.price.replace('$', '')) * 10 * 0.8)}`
-                          : plan.price
-                        }
-                      </span>
-                      <span className="text-gray-400 ml-2">
-                        /{billingPeriod === 'yearly' && plan.id !== 'free' ? 'year' : plan.period}
-                      </span>
+                      <span className="text-4xl font-bold text-white">{plan.price}</span>
+                      <span className="text-gray-400 ml-2">/{plan.period}</span>
                     </div>
                   </div>
 
@@ -229,23 +221,28 @@ export default function PricingPage() {
                     <tr>
                       <th className="text-left p-6 font-semibold">Features</th>
                       <th className="text-center p-6 font-semibold">Free</th>
+                      <th className="text-center p-6 font-semibold">Starter</th>
                       <th className="text-center p-6 font-semibold">Pro</th>
-                      <th className="text-center p-6 font-semibold">Enterprise</th>
+                      <th className="text-center p-6 font-semibold">Business</th>
                     </tr>
                   </thead>
                   <tbody>
                     {[
-                      ['Daily AI Generations', '5', '100', 'Unlimited'],
-                      ['Image Quality', 'Standard', 'High', 'Ultra High'],
-                      ['Watermarks', 'Yes', 'No', 'No'],
-                      ['Support', 'Community', 'Priority', '24/7 Dedicated'],
-                      ['Advanced Editing Tools', 'No', 'Yes', 'Yes']
-                    ].map(([feature, free, pro, enterprise], index) => (
+                      ['Lifetime Credits', '10', '100', '300', '1000'],
+                      ['Image Quality', 'Standard', 'High', 'Ultra High', 'Ultra High'],
+                      ['Watermarks', 'Yes', 'No', 'No', 'No'],
+                      ['Support', 'Community', 'Priority', 'Priority', '24/7 Dedicated'],
+                      ['Advanced Editing Tools', 'No', 'Yes', 'Yes', 'Yes'],
+                      ['Batch Processing', 'No', 'No', 'Yes', 'Yes'],
+                      ['API Access', 'No', 'No', 'No', 'Yes'],
+                      ['Custom Branding', 'No', 'No', 'No', 'Yes']
+                    ].map(([feature, free, starter, pro, business], index) => (
                       <tr key={index} className="border-t border-white/10">
                         <td className="p-6 font-medium">{feature}</td>
                         <td className="p-6 text-center text-gray-400">{free}</td>
+                        <td className="p-6 text-center text-white">{starter}</td>
                         <td className="p-6 text-center text-white">{pro}</td>
-                        <td className="p-6 text-center text-white">{enterprise}</td>
+                        <td className="p-6 text-center text-white">{business}</td>
                       </tr>
                     ))}
                   </tbody>
