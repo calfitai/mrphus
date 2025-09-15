@@ -119,6 +119,10 @@ const faqs = [
   {
     question: 'What happens if I run out of credits?',
     answer: 'You can purchase additional credit packs or upgrade to a higher plan. Credits never expire and can be used anytime.'
+  },
+  {
+    question: 'What AI model do you use?',
+    answer: 'We use Google Gemini 2.5 Flash (Nano Banana) for all image generation. Each generation costs us $0.039 in API fees, and we offer competitive lifetime pricing with no daily limits.'
   }
 ];
 
