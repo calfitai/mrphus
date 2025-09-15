@@ -47,26 +47,30 @@ export default function GalleryPage() {
       <main className="pt-20 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-[#ff5757] to-white bg-clip-text text-transparent">
-              Community Gallery
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="relative">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-[#ff5757] to-white bg-clip-text text-transparent">
+                Community Gallery
+              </h2>
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] rounded-full opacity-20"></div>
+              <div className="absolute -bottom-2 -left-4 w-6 h-6 bg-gradient-to-r from-[#ff8a8a] to-[#ff5757] rounded-full opacity-30"></div>
+            </div>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Discover amazing AI-generated images created by our community. 
               Get inspired and see the endless possibilities of AI image transformation.
             </p>
           </div>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-16">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-[#ff5757] text-white'
-                    : 'bg-white/10 text-gray-300 hover:bg-white/20'
+                    ? 'bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] text-white shadow-lg shadow-[#ff5757]/25'
+                    : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-white/10 hover:border-white/20'
                 }`}
               >
                 {category}
@@ -113,36 +117,58 @@ export default function GalleryPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
+            <div className="text-center py-20">
+              {/* Modern Empty State */}
+              <div className="relative mb-12">
+                <div className="w-32 h-32 bg-gradient-to-br from-[#ff5757]/20 to-[#ff8a8a]/10 rounded-full flex items-center justify-center mx-auto mb-8 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff5757]/30 to-[#ff8a8a]/20 rounded-full blur-xl"></div>
+                  <svg className="w-16 h-16 text-[#ff5757] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                
+                <h3 className="text-3xl font-bold text-white mb-4">Gallery is Empty</h3>
+                <p className="text-gray-400 mb-8 max-w-lg mx-auto text-lg">
+                  No images have been generated yet. Be the first to create amazing AI images and see them featured here!
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Link
+                    href="/app"
+                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] text-white font-semibold rounded-full hover:from-[#ff6b6b] hover:to-[#ff9a9a] transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#ff5757]/25"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Start Creating Now
+                  </Link>
+                  
+                  <Link
+                    href="/pricing"
+                    className="inline-flex items-center px-6 py-3 bg-white/10 text-white font-medium rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20"
+                  >
+                    View Pricing
+                  </Link>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Gallery is Empty</h3>
-              <p className="text-gray-400 mb-8 max-w-md mx-auto">
-                No images have been generated yet. Be the first to create amazing AI images and see them featured here!
-              </p>
-              <Link
-                href="/app"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] text-white font-semibold rounded-full hover:from-[#ff6b6b] hover:to-[#ff9a9a] transition-all duration-300 transform hover:scale-105"
-              >
-                Start Creating Now
-              </Link>
+
+              {/* Stats Section */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#ff5757] mb-2">10+</div>
+                  <div className="text-gray-400">AI Categories</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#ff5757] mb-2">∞</div>
+                  <div className="text-gray-400">Possibilities</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#ff5757] mb-2">24/7</div>
+                  <div className="text-gray-400">AI Processing</div>
+                </div>
+              </div>
             </div>
           )}
-
-          {/* CTA Section */}
-          <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold mb-4">Ready to Create Your Own?</h3>
-            <p className="text-gray-400 mb-8">Join thousands of creators using MRPHUS AI</p>
-            <Link
-              href="/app"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#ff5757] to-[#ff8a8a] text-white font-semibold rounded-full hover:from-[#ff6b6b] hover:to-[#ff9a9a] transition-all duration-300 transform hover:scale-105"
-            >
-              Start Creating Now
-            </Link>
-          </div>
         </div>
       </main>
 
